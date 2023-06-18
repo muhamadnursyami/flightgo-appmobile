@@ -7,7 +7,7 @@ import { Alert } from 'react-native';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
-//   const [userInfo, setUserInfo] = useState({});
+  // const [userInfo, setUserInfo] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   const register = ( email, password,navigation) => {
@@ -35,10 +35,43 @@ export const AuthProvider = ({children}) => {
     setIsLoading(false);
    })
   }
+
+
+
+  const login  = (email, password, navigation) => {
+
+    console.log(`login page ${email}`);
+    console.log(`login page ${password}`); 
+    setIsLoading(true);
+    axios.post(`${API_URL}/login`,{
+      email,password
+    }).then((res)=>{
+      AsyncStorage.setItem('token', JSON.stringify(res.data.data.accessToken));
+      AsyncStorage.setItem('role', JSON.stringify(res.data.data.role));
+      console.log(`token ${res.data.data.accessToken}`);
+      console.log(`role ${res.data.data.role}`);
+      const user = res.data.data.role;
+      if(user === "member"){
+        navigation.navigate("Home");
+      }
+      else{
+        navigation.navigate("ListOrder")
+      }
+
+      setIsLoading(false);
+        // let dataUser = res.data.data;
+        // setUserInfo(dataUser);
+        // console.log(res.data.data);
+    }).catch((err)=>{
+      console.log(err);
+      setIsLoading(false);
+    })
+
+  }
   return (
     <AuthContext.Provider
       value={{
-        register,isLoading     
+        register,isLoading,login     
       }}>
       {children}
     </AuthContext.Provider>

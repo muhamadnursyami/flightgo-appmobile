@@ -4,7 +4,11 @@ import {Text, View} from 'react-native';
 const ListOrder = () =>{
     return (
         <View>
-            <Text>Hello world List Order</Text>
+            <Text style={{color: "black"}}>LIST ORDER</Text>
+            <Text style={{color: "black"}}>LIST ORDER</Text>
+            <Text style={{color: "black"}}>LIST ORDER</Text>
+            <Text style={{color: "black"}}>LIST ORDER</Text>
+            <Text style={{color: "black"}}>LIST ORDER</Text>
         </View>
     )
 }

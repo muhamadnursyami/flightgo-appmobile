@@ -4,7 +4,11 @@ import {Text, View} from 'react-native';
 const Home = () =>{
     return (
         <View>
-            <Text>Hello world Home /Landing page</Text>
+            <Text style={{color: "black"}}>Hello world Home Landing page</Text>
+            <Text style={{color: "black"}}>Hello world Home Landing page</Text>
+            <Text style={{color: "black"}}>Hello world Home Landing page</Text>
+            <Text style={{color: "black"}}>Hello world Home Landing page</Text>
+            <Text style={{color: "black"}}>Hello world Home Landing page</Text>
         </View>
     )
 }

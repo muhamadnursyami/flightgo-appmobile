@@ -9,7 +9,7 @@ const Splash = ({navigation}) => {
 
   const timeMove = async () =>{
     try {
-      setTimeout(switchToRegister, 3000);
+      setTimeout(switchToRegister, 2000);
     } catch (error) {
       console.log(error)
     }

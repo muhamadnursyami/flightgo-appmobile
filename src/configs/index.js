@@ -1,0 +1,1 @@
+export const API_URL = "https://be-pem-mobile-production.up.railway.app/v1/api"

@@ -9,7 +9,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
   // const [userInfo, setUserInfo] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-
+  const [pesanError, setPesanError] = useState("");
   const register = ( email, password,navigation) => {
     // console.log(` aut : ${email}`);
     // console.log(` aut : ${password}`);
@@ -48,8 +48,10 @@ export const AuthProvider = ({children}) => {
     }).then((res)=>{
       AsyncStorage.setItem('token', JSON.stringify(res.data.data.accessToken));
       AsyncStorage.setItem('role', JSON.stringify(res.data.data.role));
-      console.log(`token ${res.data.data.accessToken}`);
-      console.log(`role ${res.data.data.role}`);
+      // console.log(`token ${res.data.data.accessToken}`);
+      // console.log(`role ${res.data.data.role}`);
+      // console.log(AsyncStorage.getItem("token"));
+      // console.log(AsyncStorage.getItem("role"));
       const user = res.data.data.role;
       if(user === "member"){
         navigation.navigate("Home");
@@ -63,15 +65,17 @@ export const AuthProvider = ({children}) => {
         // setUserInfo(dataUser);
         // console.log(res.data.data);
     }).catch((err)=>{
-      console.log(err);
+      setPesanError("Email atau password anda salah");
       setIsLoading(false);
     })
 
   }
+
+ 
   return (
     <AuthContext.Provider
       value={{
-        register,isLoading,login     
+        register,isLoading,login,pesanError     
       }}>
       {children}
     </AuthContext.Provider>

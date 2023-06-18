@@ -1,17 +1,33 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {Text, View, TouchableOpacity,Image, StatusBar} from 'react-native';
 import Logo from "../../assets/icon/Icon.png"
 import {Button, Input} from "galio-framework"
 import { AuthContext } from '../../auth/authContext';
 
 import Spinner from 'react-native-loading-spinner-overlay';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const Login = ({navigation}) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const {login, setIsLoading} = useContext(AuthContext);
+  const {login, setIsLoading, pesanError} = useContext(AuthContext);
   console.log(email);
   console.log(password);
 
+  // const handleToken = async() =>{
+  //   const token = await AsyncStorage.getItem("token");
+  //   if(!token) {
+  //     navigation.navigate("Login");
+  //   }
+  //   else{
+  //     navigation.navigate("Home");
+  //   }
+  // }
+
+
+  // useEffect(() => {
+  //   handleToken();
+  // })
+  
   return (
     <View style={{ flex: 1, justifyContent:'center', alignItems:'center', margin: 20}}>
       <Spinner visible={setIsLoading}/>
@@ -29,6 +45,7 @@ const Login = ({navigation}) => {
             <Text style={{fontWeight:"bold", color:"gray"}} onPress={() => navigation.navigate("Register")}> Register</Text>
           </TouchableOpacity>
       </View>
+      <Text style={{color: "red", marginTop:20}}>{pesanError}</Text>
       
     </View>
   );

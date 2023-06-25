@@ -1,44 +1,37 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+
+// Screen
 import Splash from '../pages/splashscreen/splashPage';
 import Register from '../pages/register/registerPage';
 import Login from '../pages/login/loginPage';
-import Home from '../pages/home/homePages';
 import ListOrder from '../pages/listorder/listorderPage';
-import { AuthContext } from '../auth/authContext';
+import RouterTab from "../routes/main";
 
 const Stack = createNativeStackNavigator();
 
+
 function routeStack() {
 
-  // const {userInfo} = useContext(AuthContext);
-  // console.log(`userInfo di routes ${userInfo.accessToken}`);
 
 return(
 
-    <Stack.Navigator >
+    <Stack.Navigator screenOptions={{}}>
         <Stack.Screen name="Splash" component={Splash}
           options={{
             headerShown:false
           }}
         />
-
-          <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
-        
           <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>
-
-        
-      
-
-
-
          <Stack.Screen name="Register" component={Register}
         options={{headerShown:false}}
         />
         <Stack.Screen name="ListOrder" component={ListOrder}
         options={{headerShown:false}}
         />
+
+        <Stack.Screen name="Home" component={RouterTab} options={{headerShown:false}}/>
       </Stack.Navigator>
   
 ) 

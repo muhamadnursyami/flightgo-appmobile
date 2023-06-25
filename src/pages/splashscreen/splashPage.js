@@ -22,16 +22,17 @@ const Splash = ({navigation}) => {
     role = JSON.parse(role);
     console.log(role);
     if(!token) {
-      navigation.navigate("Register");
+      setTimeout(() => navigation.navigate("Register"),2000 );
+      
       // navigation.navigate("Login");
     }
     else{
       // navigation.navigate("Home");
       if (role  === "admin"){
-        navigation.navigate("ListOrder")
+        setTimeout(() => navigation.navigate("ListOrder"),2000);
       }
       else {
-        navigation.navigate("Home");
+        setTimeout(()=>navigation.navigate("Home"),2000);
       }
     }
   }

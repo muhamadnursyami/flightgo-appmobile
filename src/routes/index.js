@@ -8,6 +8,8 @@ import Register from '../pages/register/registerPage';
 import Login from '../pages/login/loginPage';
 import ListOrder from '../pages/listorder/listorderPage';
 import RouterTab from "../routes/main";
+import FindTiket from '../pages/findTiket/findTiketPage';
+import Payment from '../pages/payment/paymentPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +34,8 @@ return(
         />
 
         <Stack.Screen name="Home" component={RouterTab} options={{headerShown:false}}/>
+        <Stack.Screen name="FindTiket" component={FindTiket} options={{headerShown:false}}/>
+        <Stack.Screen name="Payment" component={Payment} options={{headerShown:false}}/>
       </Stack.Navigator>
   
 ) 

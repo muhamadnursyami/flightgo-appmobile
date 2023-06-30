@@ -47,7 +47,7 @@ const Home = ({navigation}) =>{
                     <Text style={style.fontSecondChildAboutUs}>Overall Rating</Text>
                 </View>
 
-                <Button style={style.findFlight}>Find Flight</Button>
+                <Button style={style.findFlight} onPress={()=> navigation.navigate("FindTiket")}>Find Flight</Button>
             </View>
             <Text style={style.titlePopular}>Popular Domestic</Text>
             <View style={style.layout}>
@@ -57,7 +57,7 @@ const Home = ({navigation}) =>{
                         <Image source={LionAir} style={style.gambarPesawat}/>
                         <Text style={style.cardText}> Jakarta <Ioicons name="arrow-forward-outline"/> Bandung </Text>
                         <Text style={style.cardText}> $99.00/person</Text>
-                        <Button style={style.buttonBooking}>
+                        <Button style={style.buttonBooking} onPress={()=> navigation.navigate("FindTiket")}>
                             <Text style={style.textBooking}>Booking Now</Text>
                         </Button>
                     </View>
@@ -68,7 +68,7 @@ const Home = ({navigation}) =>{
                         <Image source={AviaStar} style={style.gambarPesawat}/>
                         <Text style={style.cardText}> Batam <Ioicons name="arrow-forward-outline"/> Bali </Text>
                         <Text style={style.cardText}> $99.00/person</Text>
-                        <Button style={style.buttonBooking}>
+                        <Button style={style.buttonBooking} onPress={()=> navigation.navigate("FindTiket")}>
                             <Text style={style.textBooking}>Booking Now</Text>
                         </Button>
                     </View>
@@ -82,7 +82,7 @@ const Home = ({navigation}) =>{
                         <Image source={BatikAir} style={style.gambarPesawat}/>
                         <Text style={style.cardText}> Tanjungpinang <Ioicons name="arrow-forward-outline"/> Jepang </Text>
                         <Text style={style.cardText}> $350.00/person</Text>
-                        <Button style={style.buttonBooking}>
+                        <Button style={style.buttonBooking} onPress={()=> navigation.navigate("FindTiket")}>
                             <Text style={style.textBooking}>Booking Now</Text>
                         </Button>
                     </View>
@@ -93,7 +93,7 @@ const Home = ({navigation}) =>{
                         <Image source={GarudaIndonesia} style={style.gambarPesawat}/>
                         <Text style={style.cardText}> Jakarta <Ioicons name="arrow-forward-outline"/> Rusia </Text>
                         <Text style={style.cardText}> $139.00/person</Text>
-                        <Button style={style.buttonBooking}>
+                        <Button style={style.buttonBooking} onPress={()=> navigation.navigate("FindTiket")}>
                             <Text style={style.textBooking}>Booking Now</Text>
                         </Button>
                     </View>

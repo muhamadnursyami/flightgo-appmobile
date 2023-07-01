@@ -68,8 +68,8 @@ return(
           <Tab.Screen name="Notification" component={Notification} options={{headerShown:false}}
           />
       
-      <Tab.Screen name="Wishlist" component={Wishlist} options={{headerShown:false}}
-      />
+      {/* <Tab.Screen name="Wishlist" component={Wishlist} options={{headerShown:false}}
+      /> */}
         <Tab.Screen name="History" component={History} options={{headerShown:false}}
         />
         <Tab.Screen name="Profile" component={Profile} options={{headerShown:false}}

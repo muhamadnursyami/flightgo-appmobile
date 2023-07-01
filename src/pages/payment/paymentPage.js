@@ -48,7 +48,7 @@ const Payment = ({route,navigation}) =>{
 
             });
         console.log(`hasil image :${result.assets[0].uri}`);
-         let res = await fetch(`https://be-pem-mobile-production.up.railway.app/v1/api/ticket/transaction/${ticket.id}`,{
+         let res = await fetch(`${API_URL}/ticket/transaction/${ticket.id}`,{
             method:"post",
             body: formData,
             headers:{
@@ -58,7 +58,7 @@ const Payment = ({route,navigation}) =>{
         })
         let response = await res.json();
         Alert.alert(response.message)
-        console.log(response);
+        console.log(response.message);
         navigation.navigate("Home");
             
        

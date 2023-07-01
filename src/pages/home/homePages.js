@@ -13,15 +13,24 @@ import VISA from "../../assets/image/logo03.png"
 import QRIS from "../../assets/image/logo04.png"
 import PERMATA from "../../assets/image/logo05.png"
 import BNI from "../../assets/image/logo06.png"
+import { RefreshControl } from "react-native-gesture-handler";
+import { useState } from "react";
 const Home = ({navigation}) =>{
+    const [refreshing, setRefreshing] = useState(false);
 
+    const refresh =() =>{
+        setRefreshing(true)
+        setTimeout(()=>{
+            setRefreshing(false);
+        }, 3000);
+    }
     const logout = () =>{
         AsyncStorage.removeItem("token");
         AsyncStorage.removeItem("role");
         navigation.navigate("Login");
     }
     return (
-       <ScrollView style={style.container}>
+       <ScrollView style={style.container} >
             <View style={style.layoutButtonOrange}>
             <Text style={style.titleDashboard}>Dashboard</Text>
                 <Button style={style.buttonOrange} onPress={()=> logout()}>

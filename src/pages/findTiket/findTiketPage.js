@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { API_URL } from "../../configs";
 const FindTiket = ({navigation}) =>{
     const [ticket, setTicket] = useState({});
     // console.log(`id di find Tiket : ${ticket.id}`);
@@ -20,7 +21,8 @@ const FindTiket = ({navigation}) =>{
    
     
       const getTicket = async () => {
-        const response = await axios.get("https://be-pem-mobile-production.up.railway.app/v1/api/ticket");
+        
+        const response = await axios.get(`${API_URL}/ticket`);
         setTicket(response.data[0])
     };
 

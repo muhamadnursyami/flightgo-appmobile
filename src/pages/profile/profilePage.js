@@ -25,22 +25,20 @@ const Profile = ({navigation}) =>{
         })
         console.log(response.data)
         setUsers(response.data);
-        if (users.izin === null ||
-        users.address === null ||
-        users.passport === null ||
-        users.visa === null
+
+        if (
+        response.data.visa === null
       ) {
         Alert.alert("Anda belum melengkapi Info Akun, mohon lengkapi terlebih dahulu!");
       }
       else{
-        console.log("data lengkap !");
+        console.log(response.data.visa);
       }
 
     }
 
     useEffect(() => {
-        refresh();
-     profile();
+        profile();
     }, [])
     
    
